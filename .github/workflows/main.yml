@@ -17,26 +17,26 @@ jobs:
   update:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
+    
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Start SSH session
-       uses: luchihoratiu/debug-via-ssh@main
-       with:
-         NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
-         SSH_PASS: ${{ secrets.SSH_PASS }}
+        uses: luchihoratiu/debug-via-ssh@main
+        with:
+          NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
+          SSH_PASS: ${{ secrets.SSH_PASS }}
       
-      #https://github.com/marketplace/actions/get-github-release-json
-    - name: Get releases
-      uses: ctrlaltdev/get-releases-action@latest
-      with:
-        repo: Mauler125/r5sdk
-        token: ${{ secrets.GITHUB_TOKEN }}
-        limit: 2
-        fields: id,tag_name,assets
-        # include_prerelease: false
-      #outputs to `releases`
-      
+        #https://github.com/marketplace/actions/get-github-release-json
+      - name: Get releases
+        uses: ctrlaltdev/get-releases-action@latest
+        with:
+          repo: Mauler125/r5sdk
+          token: ${{ secrets.GITHUB_TOKEN }}
+          limit: 2
+          fields: id,tag_name,assets
+          # include_prerelease: false
+        #outputs to `releases`
+        
       #https://github.com/marketplace/actions/get-previous-release
       - name: Get previous release tag
         id: previous-release
