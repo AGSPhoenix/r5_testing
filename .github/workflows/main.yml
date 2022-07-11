@@ -24,7 +24,7 @@ jobs:
       - name: Get releases
         uses: ctrlaltdev/get-releases-action@latest
         with:
-          repo: Mauler125/r5sdk
+          repo: ${{ github.repository }}
           token: ${{ secrets.GITHUB_TOKEN }}
           limit: 2
           fields: id,tag_name,assets
