@@ -22,7 +22,7 @@ jobs:
     steps:
         #https://github.com/marketplace/actions/get-github-release-json
       - name: Get releases
-        uses: ctrlaltdev/get-releases-action@latest
+        uses: ctrlaltdev/get-releases-action@v1.1.0
         with:
           repo: ${{ github.repository }}
           token: ${{ secrets.GITHUB_TOKEN }}
