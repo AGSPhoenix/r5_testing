@@ -20,12 +20,6 @@ jobs:
     
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Start SSH session
-        uses: luchihoratiu/debug-via-ssh@main
-        with:
-          NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
-          SSH_PASS: ${{ secrets.SSH_PASS }}
-      
         #https://github.com/marketplace/actions/get-github-release-json
       - name: Get releases
         uses: ctrlaltdev/get-releases-action@latest
@@ -37,7 +31,8 @@ jobs:
           # include_prerelease: false
         #outputs to `releases`
         
-      #https://github.com/marketplace/actions/get-previous-release
-      - name: Get previous release tag
-        id: previous-release
-        uses: actions/get-previous-release-action@v1
+      - name: Start SSH session
+        uses: luchihoratiu/debug-via-ssh@main
+        with:
+          NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
+          SSH_PASS: ${{ secrets.SSH_PASS }}
